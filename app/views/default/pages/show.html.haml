@@ -1,0 +1,9 @@
+%h1= current_page.title
+- repeater(:PageSection) do |page|
+  = page.content.html :title_1
+  = page.content.image_tag :Image
+- repeater(:CardSection) do |card| 
+  = card.content.html :CardSectionTitle
+
+  
+= current_account.content.html :footer
