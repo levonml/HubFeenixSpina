@@ -54,3 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'spina'
 gem 'haml-rails'
+gem "tailwindcss-rails", "~> 1.0"
+gem 'cssbundling-rails'
+gem 'rufo'
+

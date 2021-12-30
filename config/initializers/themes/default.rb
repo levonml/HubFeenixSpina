@@ -5,12 +5,12 @@
 
 Spina::Theme.register do |theme|
   # All views are namespaced based on the theme's name
-  theme.name = 'default'
-  theme.title = 'Default theme'
-  
-  # Parts 
+  theme.name = "default"
+  theme.title = "Default theme"
+
+  # Parts
   # Define all editable parts you want to use in your view templates
-  # 
+  #
   # Built-in part types:
   # - Line
   # - MultiLine
@@ -21,113 +21,115 @@ Spina::Theme.register do |theme|
   # - Option
   # - Repeater
   theme.parts = [{
-	  name: 'PageTitle',
-	  title: 'Page Title',
-	  part_type: "Spina::Parts::Line"
+    name: "Title",
+    title: "title",
+    part_type: "Spina::Parts::Line",
   }, {
-	  name: 'title_1',
-	  title: 'subtitle',
-	  part_type: "Spina::Parts::Text"
+    name: "Subtitle",
+    title: "subtitle",
+    part_type: "Spina::Parts::Text",
   }, {
-	  name: 'text',
-	  title: 'text',
-	  part_type: "Spina::Parts::Text"
+    name: "TextArea",
+    title: "text",
+    part_type: "Spina::Parts::Text",
   }, {
-	  name: 'MainImage',
-      title: 'Main Image',
-      part_type: 'Spina::Parts::Image'
-  }, { 
-	  name: 'CardSectionTitle',
-	  title: 'Section Title',
-	  part_type: "Spina::Parts::Line"
+    name: "Description",
+    title: "Description",
+    part_type: "Spina::Parts::Text",
   }, {
-	  name: 'CardDescription',
-	  title: "Card Description", 
-	  part_type: "Spina::Parts::Text"
+    name: "Size",
+    title: "Size",
+    part_type: "Spina::Parts::Text",
   }, {
-	  name: 'CardTitle',
-	  title: 'Card Title',
-	  part_type: "Spina::Parts::Line"
+    name: "Image",
+    title: "Image",
+    part_type: "Spina::Parts::Image",
   }, {
-	  name: 'Size',
-	  title: 'Size',
-	  part_type: "Spina::Parts::Text"
+    name: "PageSection",
+    title: "Page section",
+    parts: %w(Title Subtitle Description Image),
+	part_type: "Spina::Parts::Repeater", 
   }, {
-  	  name: 'Image',
-	  title: 'Image',
-	  part_type: 'Spina::Parts::Image'
+    name: "SingleCard",
+    title: "Card",
+    parts: %w(Title Description Size Image),
+    part_type: "Spina::Parts::Repeater",
   }, {
-      name: 'footer',
-      title: 'Footer',
-      part_type: 'Spina::Parts::Text'
+    name: "SpacesSection",
+    title: "Spaces section",
+    parts: %w(Title Subtitle SingleCard),
+	part_type: "Spina::Parts::Repeater",
   }, {
-	  name: "SubTitle",
-  	  title: "subtitle",
-  	  parts: %w(title_1),
-  	  part_type: "Spina::Parts::Repeater"
+    name: "SectionHead",
+    title: "Section Header",
+    parts: %w(Title Subtitle),
   }, {
-	  name: "TextArea",
-	  title: "text area",
-	  parts: %w(text),
-	  part_type: "Spina::Parts::Repeater"
+    name: "Accommodation",
+    title: "Accommodation",
+    parts: %w(Title Description Image),
+    part_type: "Spina::Parts::Repeater",
   }, {
-	  name: "PageSection",
-	  title: "Page section",
-	  parts: %w(PageTitle title_1 TextArea Image),
-	  part_type: "Spina::Parts::Repeater"
- },  {
-      name: "SingleCard",
-      title: "Card",
-      parts: %w(CardTitle CardDescription Size Image),
-      part_type: "Spina::Parts::Repeater"
+    name: "AccommodationSection",
+    title: "Accommodation section",
+    parts: %w(Title Subtitle Accommodation),
   }, {
-	name: "CardSection",
-	title: "Card Section",
-	parts: %w(CardSectionTitle SubTitle SingleCard),
-	part_type: "Spina::Parts::Repeater"
-},]
+    name: "CommonServices",
+    title: "Common Services",
+    parts: %w(Title Description Image),
+    part_type: "Spina::Parts::Repeater",
+  }, {
+    name: "CommonServicesSection",
+    title: "Common Services Section",
+    parts: %w(Title Description CommonServices),
+  }, {
+    name: "footer",
+    title: "Footer",
+    part_type: "Spina::Parts::Text",
+  }]
   # View templates
   # Every page has a view template stored in app/views/my_theme/pages/*
   # You define which parts you want to enable for every view template
   # by referencing them from the theme.parts configuration above.
   theme.view_templates = [{
-	  name: 'homepage', 
-	  title: 'Homepage', 
-	  parts: %w(text)
-	}, {
-	  name: 'show',  
-	  description: 'Retreats page', 
-	  usage: 'Use for your content', 
-	  parts: %w(PageSection CardSection)}
-  ]
-  
+    name: "homepage",
+    title: "Homepage",
+    parts: %w(TextArea PageSection),
+  }, {
+    name: "show",
+    title: "Retreats",
+    description: "Retreats page",
+    usage: "Use for your content",
+    parts: %w(SpacesSection),
+
+  }]
+
   # Custom pages
   # Some pages should not be created by the user, but generated automatically.
   # By naming them you can reference them in your code.
   theme.custom_pages = [
-    {name: 'homepage', title: "Homepage", deletable: false, view_template: "homepage"},
+    { name: "homepage", title: "Homepage", deletable: false, view_template: "homepage" },
   ]
-  
+
   # Navigations (optional)
   # If your project has multiple navigations, it can be useful to configure multiple
   # navigations.
   theme.navigations = [
-    {name: 'main', label: 'Main navigation'}
+    { name: "main", label: "Main navigation" },
   ]
-  
+
   # Layout parts (optional)
   # You can create global content that doesn't belong to one specific page. We call these layout parts.
   # You only have to reference the name of the parts you want to have here.
   theme.layout_parts = ["footer"]
-  
+
   # Resources (optional)
   # Think of resources as a collection of pages. They are managed separately in Spina
   # allowing you to separate these pages from the 'main' collection of pages.
   theme.resources = []
-  
+
   # Plugins (optional)
   theme.plugins = []
-  
+
   # Embeds (optional)
   theme.embeds = []
 end
