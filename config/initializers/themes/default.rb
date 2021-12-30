@@ -28,6 +28,14 @@ Spina::Theme.register do |theme|
     name: "Subtitle",
     title: "subtitle",
     part_type: "Spina::Parts::Text",
+  },{
+    name: "SpacesTitle",
+    title: "Spaces title",
+    part_type: "Spina::Parts::Line",
+  }, {
+    name: "SpacesSubtitle",
+    title: "Spaces subtitle",
+    part_type: "Spina::Parts::Text",
   }, {
     name: "TextArea",
     title: "text",
@@ -99,7 +107,13 @@ Spina::Theme.register do |theme|
     title: "Retreats",
     description: "Retreats page",
     usage: "Use for your content",
-    parts: %w(SpacesSection),
+    parts: %w(Title Subtitle Description Image SpacesTitle SpacesSubtitle SingleCard),
+  }, {
+    name: "studios",
+    title: "Studios",
+    description: "Studios page",
+    usage: "Use for your content",
+    parts: %w(Title Subtitle Image),
 
   }]
 

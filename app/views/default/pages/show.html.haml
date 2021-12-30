@@ -1,32 +1,28 @@
 = stylesheet_link_tag 'application'
-%div.text-center
-  - repeater(:PageSection) do |page|
-    .flex.flex-row.m-24
-      .image.h-fit.w-full= page.content.image_tag :Image
-      %div.m-24
-        %h1.text-3xl.font-bold= current_page.title
-        = page.content.html :Subtitle
-        = page.content.html :Description
-  - repeater(:SpacesSection) do |spaces|
-    %h1.spaces_title.font-sens.text-3xl= spaces.content.html :Title
-    %p.sectionSubtitle= spaces.content.html :Subtitle
-    -#%p.sectionSubtitle= spaces.
-    - spaces do |card|
-      -#=card.content.html :Title
-    .flexContainer.m-24
-      .grid-container.cards.grid.grid-cols-3.gap-12
-        -repeater(:SingleCard) do |card|
-          .flex-container-column.card
-            .image.h-fit.w-full= card.content.image_tag :Image
-            %div
-              %h1= card.content.html :Title
-              .size= card.content.html :Size
-              .description= card.content.html :Description
+
+.flex.flex-row.m-24.text-center
+  .image.h-fit.w-full= content.image_tag :Image
+  %div.m-24
+    %h1.text-3xl.font-bold= content.html :Title
+    = content.html :Subtitle
+    = content.html :Description
+.spaces.text-center
+  %h1.spaces_title.font-sens.text-3xl= content.html :Title
+  %p.sectionSubtitle= content.html :Subtitle
+  .flexContainer.m-24
+    .grid-container.cards.grid.grid-cols-3.gap-12
+      -repeater(:SingleCard) do |card|
+        .flex-container-column.card
+        .image.h-fit.w-full= card.content.image_tag :Image
+        %div
+          %h1= card.content.html :Title
+          .size= card.content.html :Size
+          .description= card.content.html :Description
   %div= current_account.content.html :Title_2
   - repeater(:Accommodation) do |card|
     .flex.flex-row
       %div.image.h-fit.w-full= card.content.image_tag :Image	
-  %div{:class => "text-center"}= current_account.content.html :footer
+.text-center= current_account.content.html :footer
 
 
 -# - repeater(:SingleCard) do |card|
