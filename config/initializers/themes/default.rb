@@ -37,6 +37,22 @@ Spina::Theme.register do |theme|
     title: "Spaces subtitle",
     part_type: "Spina::Parts::Text",
   }, {
+    name: "AccommodationTitle",
+    title: "Accommodation title",
+    part_type: "Spina::Parts::Line",
+  }, {
+    name: "AccommodationSubtitle",
+    title: "Accommodation subtitle",
+    part_type: "Spina::Parts::Text",
+  }, {
+    name: "CommonServicesTitle",
+    title: "CommonServices title",
+    part_type: "Spina::Parts::Line",
+  }, {
+    name: "CommonServicesSubtitle",
+    title: "CommonServices subtitle",
+    part_type: "Spina::Parts::Text",
+  },{
     name: "TextArea",
     title: "text",
     part_type: "Spina::Parts::Text",
@@ -107,7 +123,21 @@ Spina::Theme.register do |theme|
     title: "Retreats",
     description: "Retreats page",
     usage: "Use for your content",
-    parts: %w(Title Subtitle Description Image SpacesTitle SpacesSubtitle SingleCard),
+    parts: %w(
+		Title 
+		Subtitle 
+		Description 
+		Image 
+		SpacesTitle 
+		SpacesSubtitle 
+		SingleCard 
+		AccommodationTitle 
+		AccommodationSubtitle
+		Accommodation 
+		CommonServicesTitle
+		CommonServicesSubtitle
+		CommonServices
+	),
   }, {
     name: "studios",
     title: "Studios",
