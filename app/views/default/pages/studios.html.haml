@@ -1,0 +1,26 @@
+= stylesheet_link_tag 'application'
+.StudiosSection.text-center.flex.flex-row
+  .image.h-fit.w-full= content.image_tag :Image
+  .m-24
+    %h1.text-3xl.font-bold= content.html :Title
+    = content.html :Description
+.StudioTypes.text-center
+  %h1.Studios_title.font-sens.text-3xl= content.html :StudiosTitle
+  %p.StudiosStudiosStudios= content.html :StudiosDescription
+  .grid.grid-cols-3.gap-12.m-24
+    - repeater(:SingleCard) do |card|
+      -#.image.h-fit.w-full.absolute= card.content.image_tag :Image
+      -#.grid.grid-cols-1
+      .relative
+        .image.h-fit.w-full.absolute= card.content.image_tag :Image
+        .titl.absolute.top-1.left-1= card.content :Title
+        .description.absolute.top-1.left-1= card.content.html :Description
+.IncludedSection.text-center
+  %h1.included_title.font-sens.text-3xl= content.html :IncludedTitle
+  %p.includedSubtitle= content.html :IncludedSubtitle
+  .grid-container.cards.grid.grid-cols-3.gap-12.m-24
+    - repeater(:SingleCard_2) do |card|
+      .grid.grid-cols-1
+        .image.h-fit.w-full= card.content.image_tag :Image
+        .titl= card.content :Title
+        .description= card.content.html :Description

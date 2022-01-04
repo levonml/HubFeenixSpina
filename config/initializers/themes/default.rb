@@ -52,6 +52,22 @@ Spina::Theme.register do |theme|
     name: "CommonServicesSubtitle",
     title: "CommonServices subtitle",
     part_type: "Spina::Parts::Text",
+  }, {
+    name: "StudiosTitle",
+    title: "Studios title",
+    part_type: "Spina::Parts::Line",
+  }, {
+    name: "StudiosDescription",
+    title: "Studios description",
+    part_type: "Spina::Parts::Text",
+  }, {
+    name: "IncludedTitle",
+    title: "Included title",
+    part_type: "Spina::Parts::Line",
+  }, {
+    name: "IncludedSubtitle",
+    title: "Included subtitlte",
+    part_type: "Spina::Parts::Text",
   },{
     name: "TextArea",
     title: "text",
@@ -72,17 +88,18 @@ Spina::Theme.register do |theme|
     name: "PageSection",
     title: "Page section",
     parts: %w(Title Subtitle Description Image),
-	part_type: "Spina::Parts::Repeater", 
+	part_type: "Spina::Parts::Text",
+
   }, {
     name: "SingleCard",
     title: "Card",
     parts: %w(Title Description Size Image),
     part_type: "Spina::Parts::Repeater",
   }, {
-    name: "SpacesSection",
-    title: "Spaces section",
-    parts: %w(Title Subtitle SingleCard),
-	part_type: "Spina::Parts::Repeater",
+    name: "SingleCard_2",
+    title: "Card",
+    parts: %w(Title Description Size Image),
+    part_type: "Spina::Parts::Repeater",
   }, {
     name: "SectionHead",
     title: "Section Header",
@@ -92,19 +109,11 @@ Spina::Theme.register do |theme|
     title: "Accommodation",
     parts: %w(Title Description Image),
     part_type: "Spina::Parts::Repeater",
-  }, {
-    name: "AccommodationSection",
-    title: "Accommodation section",
-    parts: %w(Title Subtitle Accommodation),
-  }, {
+  },  {
     name: "CommonServices",
     title: "Common Services",
     parts: %w(Title Description Image),
     part_type: "Spina::Parts::Repeater",
-  }, {
-    name: "CommonServicesSection",
-    title: "Common Services Section",
-    parts: %w(Title Description CommonServices),
   }, {
     name: "footer",
     title: "Footer",
@@ -143,7 +152,24 @@ Spina::Theme.register do |theme|
     title: "Studios",
     description: "Studios page",
     usage: "Use for your content",
-    parts: %w(Title Subtitle Image),
+    parts: %w(
+		Title 
+		Description  
+		Image
+		StudiosTitle
+		StudiosDescription
+		SingleCard
+		IncludedTitle
+		IncludedSubtitle
+		SingleCard_2
+
+	),
+  }, {
+    name: "makerspace",
+    title: "Makerspace",
+    description: "Makerspace page",
+    usage: "Use for your content",
+    parts: %w(MakerspaceIntro),
 
   }]
 

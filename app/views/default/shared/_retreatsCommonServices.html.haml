@@ -1,0 +1,18 @@
+.CommonServicesSection.text-center
+  %h1.CommonServices_title.font-sens.text-3xl= content.html :CommonServicesTitle
+  %p.CommonServicesSubtitle= content.html :CommonServicesSubtitle
+  - n = 0
+  - repeater(:CommonServices) do |card| 
+    - n = n + 1 
+    .CommonService.flex.flex-row
+    .flex.flex-row
+      -if n % 2 == 1
+        .image.h-fit.w-full= card.content.image_tag :Image
+        .m-24
+          .CommonServices_title.font-sens.text-3xl= card.content.html :Title
+          .CommonServicesSubtitle= card.content.html :Description	
+      -else 
+        .m-24
+          .CommonServices_title.font-sens.text-3xl= card.content.html :Title
+          .CommonServicesSubtitle= card.content.html :Description	
+        .image.h-fit.w-full= card.content.image_tag :Image

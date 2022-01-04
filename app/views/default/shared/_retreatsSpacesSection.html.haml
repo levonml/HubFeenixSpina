@@ -1,0 +1,10 @@
+.spaceSection.text-center
+  %h1.spaces_title.font-sens.text-3xl= content.html :SpacesTitle
+  %p.spacesSubtitle= content.html :SpacesSubtitle
+  .grid-container.cards.grid.grid-cols-3.gap-12.m-24
+    - repeater(:SingleCard) do |card|
+      .grid.grid-cols-1
+        .image.h-fit.w-full= card.content.image_tag :Image
+        .titl= card.content :Title
+        .size= card.content.html :Size
+        .description= card.content.html :Description

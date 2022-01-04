@@ -1,0 +1,6 @@
+.accommodationSection.text-center
+  %h1.accommodation_title.font-sens.text-3xl= content.html :AccommodationTitle
+  %p.accomodationSubtitle= content.html :AccommodationSubtitle
+  - repeater(:Accommodation) do |card|
+    .flex.flex-row
+      .image.h-fit.w-full= card.content.image_tag :Image
